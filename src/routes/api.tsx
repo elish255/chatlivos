@@ -16,7 +16,7 @@ import {
   updatePaymentOrder,
   updateProfile,
   upsertProfile,
-} from "../../lib/backend";
+} from "../lib/backend";
 
 const FIMIPAY_URL = "https://fimipay.com/api/v1";
 
