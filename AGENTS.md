@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the Chatlivo experience as an unmodified local HTML snapshot embedded at the index route, because this request requires matching the reference site without altering its design or interactions.
