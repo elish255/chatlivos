@@ -55,15 +55,9 @@ function RegisterPage() {
         password: form.password,
       });
 
-      if (result.accessToken) {
-        saveSession(result.accessToken, result.refreshToken);
-        await navigate({ to: "/payment" });
-      } else {
-        setMessage({
-          success: true,
-          text: "Account imetengenezwa. Kama email confirmation imewashwa kwenye Supabase, thibitisha email yako kisha ingia.",
-        });
-      }
+      saveSession(result.accessToken, result.refreshToken);
+      // Registration should never stop on a success message: continue directly to payment.
+      await navigate({ to: "/payment" });
     } catch (error) {
       setMessage({ text: error instanceof Error ? error.message : "Imeshindikana kujisajili. Jaribu tena." });
     } finally {

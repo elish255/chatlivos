@@ -2,7 +2,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import "../styles.css";
-import { clearSession, getMe } from "../lib/client-auth";
+import { apiPost, clearSession, getMe } from "../lib/client-auth";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -18,6 +18,7 @@ function DashboardPage() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [notifications, setNotifications] = useState<any[]>([]);
 
   useEffect(() => {
     getMe().then(async (me) => {
@@ -30,6 +31,8 @@ function DashboardPage() {
         return;
       }
       setProfile(me.profile);
+      const noticeResult = await apiPost<any>({ action: "notifications" }, true).catch(() => ({ notifications: [] }));
+      setNotifications(noticeResult.notifications || []);
       setLoading(false);
     });
   }, [navigate]);
@@ -54,6 +57,21 @@ function DashboardPage() {
           <h1>Karibu, {profile?.full_name || profile?.username}</h1>
           <p className="dashboard-muted">Account yako ime-activate. Sasa unaweza kuanza kuchat na foreign learners.</p>
         </section>
+
+        {notifications.length > 0 && (
+          <section className="dashboard-card">
+            <h2>Notifications</h2>
+            <div className="dashboard-notifications">
+              {notifications.map((n) => (
+                <div className="dashboard-notification" key={n.id}>
+                  <strong>{n.title}</strong>
+                  <div>{n.message}</div>
+                  <small>{new Date(n.created_at).toLocaleString()}</small>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="dashboard-card">
           <h2>Ready to chat?</h2>

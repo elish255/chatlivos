@@ -61,3 +61,22 @@ npm run build
 ```
 
 Deploy folder hii kwenye Vercel.
+
+## Chatlivos Admin Panel
+
+Admin panel URL: `/admin`.
+
+1. Create the admin account in Supabase Authentication > Users.
+2. Run this in Supabase SQL Editor, replacing the email:
+
+```sql
+insert into public.chatlivos_admin_users (user_id, email)
+select id, email
+from auth.users
+where lower(email) = lower('admin@example.com')
+on conflict (user_id) do update set email = excluded.email, is_active = true;
+```
+
+The admin can view registration count and user details, activate/deactivate users, ban/unban users, and send notifications to everyone or one user.
+
+The SQL file creates/changes only `chatlivos_*` tables. It does not alter tables used by other websites in the same Supabase project.
