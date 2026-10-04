@@ -1,28 +1,63 @@
-# Chat Livo Clone
+# Chatlivos
 
-Nitengenezee hii website yangu kama ilivo https://www.chatlivo.site/
+Website ya Chatlivos yenye registration, login, account activation na dashboard iliyounganishwa na Supabase.
 
-Muhimu usibadilishe chochote
+## 1. Supabase
 
-This project was built with [Lovable](https://lovable.dev).
+Fungua Supabase SQL Editor na run:
 
-**Live app**: https://chatlivos.lovable.app
+`supabase/schema.sql`
 
-## Build with Lovable
+Schema inatengeneza:
+- `profiles` — taarifa za user na `is_active`
+- `payment_orders` — kumbukumbu za malipo
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d3416dd3-4708-4cd4-99c7-71c228bb3736).
+RLS imewashwa. Website server hutumia `SUPABASE_SERVICE_ROLE_KEY` kwa operations za backend; usiiweke kwenye `VITE_*`.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## 2. Vercel Environment Variables
 
-## Development
+Weka hizi kwenye Vercel kwa Production/Preview kulingana na unavyohitaji:
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```text
+VITE_SUPABASE_URL=...
+VITE_SUPABASE_PUBLISHABLE_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
+FIMIPAY_SECRET_KEY=...
+FIMIPAY_AMOUNT=16000
 ```
+
+`FIMIPAY_SECRET_KEY` ni server-only. Usiiweke kama `VITE_FIMIPAY_SECRET_KEY`.
+
+## 3. Payment flow
+
+1. User anajisajili.
+2. Account inaingia `is_active = false`.
+3. User anaelekezwa kwenye `/payment`.
+4. Namba ya Tanzania inasafishwa automatically:
+   - `0712345678` → `712345678`
+   - request ya provider inatumia international form `255712345678`.
+5. Button `LIPA SASA` inaanzisha payment request.
+6. Website inafuatilia order status.
+7. Status ikiwa `SUCCESS`, profile inawekwa `is_active = true`.
+8. User anaelekezwa `/dashboard`.
+9. User aki-login akiwa hajamaliza activation, anaelekezwa `/payment`.
+
+Provider name/technical payment details hazionyeshwi kwenye payment UI.
+
+## 4. Chat access
+
+`START CHAT` inakagua account:
+- hakuna session → `/register`
+- account haija-active → `/payment`
+- account Active → chat inafunguka
+
+Chat responses zimetengenezwa kuwa varied ili foreigner asirudie ujumbe mmoja kila mara.
+
+## 5. Build
+
+```bash
+npm install
+npm run build
+```
+
+Deploy folder hii kwenye Vercel.
