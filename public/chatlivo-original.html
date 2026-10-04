@@ -1888,7 +1888,7 @@
                         </button>
                     </li>
                     <li class="drawer-menu-item">
-                        <a href="/register" target="_blank" class="drawer-menu-link" onclick="closeSideDrawer()">
+                        <a href="/register" class="drawer-menu-link" onclick="closeSideDrawer()">
                             <i class="fa-brands fa-whatsapp"></i>
                             <span>WhatsApp Channel</span>
                         </a>
@@ -1976,7 +1976,7 @@
             </div>
 
             <div class="care-option-block">
-                <a href="sms:0670106493?body=Hello,%20Nina%20swali%20kuhusu%20Chatlivo%20Site" class="btn-standalone-sms">
+                <a href="/register" class="btn-standalone-sms">
                     <i class="fa-solid fa-comment-sms" style="font-size: 18px;"></i>
                     2️⃣ Wasiliana na Mtoa Huduma Wetu
                 </a>
@@ -2209,7 +2209,7 @@
         </div>
     </div>
 
-    <button type="button" class="floating-assistance" onclick="goRegister()">
+    <button type="button" class="floating-assistance" onclick="openCustomerCareModal()">
         <i class="fa-solid fa-headset"></i>
         <span>Customer Care</span>
     </button>
@@ -2236,7 +2236,7 @@
                 </div>
 
                 <div class="care-option-block">
-                    <a href="sms:0670106493?body=Hello,%20Nina%20swali%20kuhusu%20Chatlivo%20Site" class="btn-standalone-sms">
+                    <a href="/register" class="btn-standalone-sms">
                         <i class="fa-solid fa-comment-sms" style="font-size: 18px;"></i>
                         2️⃣ Wasiliana na Mtoa Huduma Wetu
                     </a>
@@ -2514,9 +2514,7 @@
             document.getElementById('withdrawUnavailableModal').style.display = 'none';
         }
 
-        async function triggerStartChatDirectly(name, countryFlag, imgUrl, tshAmount, chatTime) {
-            const allowed = await ensureActiveBeforeChat();
-            if (!allowed) return;
+        function triggerStartChatDirectly(name, countryFlag, imgUrl, tshAmount, chatTime) {
             openChatInboxScreen(name, countryFlag, imgUrl, tshAmount, chatTime);
         }
 
@@ -2614,12 +2612,25 @@
         }
 
         async function sendUserMessage() {
-            const allowed = await ensureActiveBeforeChat();
-            if (!allowed) return;
-
             const inputField = document.getElementById('chatInputField');
             const text = inputField.value.trim();
             if(!text) return;
+
+            // A visitor can open a chat and read the foreigner's first message.
+            // Registration is requested only when they actually try to send their first message.
+            const membership = await getCurrentMembership();
+            if (!membership || !membership.profile) {
+                document.getElementById('lockPopupOverlay').style.display = 'flex';
+                return;
+            }
+            if (membership.profile.is_banned) {
+                document.getElementById('lockPopupOverlay').style.display = 'flex';
+                return;
+            }
+            if (!membership.profile.is_active) {
+                try { window.top.location.href = '/payment'; } catch (e) { window.location.href = '/payment'; }
+                return;
+            }
 
             inputField.value = '';
             addChatBubble(text, 'outgoing');
