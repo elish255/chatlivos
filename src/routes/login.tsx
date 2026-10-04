@@ -1,7 +1,7 @@
 
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { FormEvent, useState } from "react";
-import "../styles/auth.css";
+import "../styles.css";
 import { apiPost, saveSession } from "../lib/client-auth";
 
 export const Route = createFileRoute("/login")({

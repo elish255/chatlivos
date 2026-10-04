@@ -1,7 +1,7 @@
 
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import "../styles/auth.css";
+import "../styles.css";
 import { apiPost, getMe, normalizeLocalTanzaniaPhone } from "../lib/client-auth";
 
 export const Route = createFileRoute("/payment")({

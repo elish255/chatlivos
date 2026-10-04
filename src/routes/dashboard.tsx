@@ -1,7 +1,7 @@
 
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import "../styles/auth.css";
+import "../styles.css";
 import { clearSession, getMe } from "../lib/client-auth";
 
 export const Route = createFileRoute("/dashboard")({
