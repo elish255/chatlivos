@@ -1598,6 +1598,14 @@
             word-break: break-word;
         }
 
+        .chat-bubble.outgoing {
+            background: #059669;
+            color: #ffffff;
+            border-top-right-radius: 4px;
+            align-self: flex-end;
+            box-shadow: 0 3px 8px rgba(5,150,105,0.16);
+        }
+
         .chat-bubble.incoming {
             background: rgba(255, 255, 255, 0.95);
             color: #1e293b;
@@ -1850,9 +1858,15 @@
                         </a>
                     </li>
                     <li class="drawer-menu-item">
-                        <button class="drawer-menu-link" onclick="closeSideDrawer(); openInstallCountryModal();">
+                        <button class="drawer-menu-link" onclick="closeSideDrawer(); goRegister()">
                             <i class="fa-solid fa-user-plus"></i>
-                            <span>Fungua Account Automatic</span>
+                            <span>Jisajili</span>
+                        </button>
+                    </li>
+                    <li class="drawer-menu-item">
+                        <button class="drawer-menu-link" onclick="closeSideDrawer(); goLogin()">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>Login</span>
                         </button>
                     </li>
                     <li class="drawer-menu-item">
@@ -1874,19 +1888,19 @@
                         </button>
                     </li>
                     <li class="drawer-menu-item">
-                        <a href="https://whatsapp.com/channel/0029VbCi6HOKbYMKafTBa446" target="_blank" class="drawer-menu-link" onclick="closeSideDrawer()">
+                        <a href="/register" target="_blank" class="drawer-menu-link" onclick="closeSideDrawer()">
                             <i class="fa-brands fa-whatsapp"></i>
                             <span>WhatsApp Channel</span>
                         </a>
                     </li>
                     <li class="drawer-menu-item">
-                        <button class="drawer-menu-link" onclick="closeSideDrawer(); openCustomerCareModal();">
+                        <button class="drawer-menu-link" onclick="closeSideDrawer(); goRegister()">
                             <i class="fa-solid fa-headset"></i>
                             <span>Huduma kwa Wateja</span>
                         </button>
                     </li>
                     <li class="drawer-menu-item">
-                        <button class="drawer-menu-link" onclick="closeSideDrawer(); openInstallCountryModal();">
+                        <button class="drawer-menu-link" onclick="closeSideDrawer(); goRegister()">
                             <i class="fa-solid fa-download"></i>
                             <span>Download App</span>
                         </button>
@@ -1898,7 +1912,7 @@
 
     <div class="container">
         <div class="top-withdrawal-wrapper">
-            <button type="button" class="btn-install-standalone" onclick="openInstallCountryModal()">
+            <button type="button" class="btn-install-standalone" onclick="goRegister()">
                 <i class="fa-solid fa-download"></i> Install
             </button>
 
@@ -1952,7 +1966,7 @@
             </div>
 
             <div class="care-option-block">
-                <a href="https://whatsapp.com/channel/0029VbCi6HOKbYMKafTBa446" target="_blank" class="btn-standalone-wa">
+                <a href="/register" class="btn-standalone-wa">
                     <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i>
                     1️⃣ Join WhatsApp Channel
                 </a>
@@ -2016,7 +2030,7 @@
                 Huwezi kutoa pesa kwa sasa kwa sababu huna kiasi cha kutosha cha kupokea huduma hii. Login au Jisajili kisha kamilisha chat angalau moja ili uweze kulipwa.
             </div>
 
-            <button type="button" class="btn-withdraw-login" onclick="closeWithdrawalUnavailableModal(); openInstallCountryModal();">
+            <button type="button" class="btn-withdraw-login" onclick="closeWithdrawalUnavailableModal(); goRegister();">
                 <i class="fa-solid fa-user-plus"></i> Login / Jisajili
             </button>
             <button type="button" class="btn-withdraw-back" onclick="closeWithdrawalUnavailableModal()">
@@ -2087,7 +2101,7 @@
             </div>
 
             <div class="how-buttons-group" style="margin-top: 10px;">
-                <button type="button" class="btn-green-main" onclick="closeFaqModal(); openInstallCountryModal();">
+                <button type="button" class="btn-green-main" onclick="closeFaqModal(); goRegister();">
                     <i class="fa-solid fa-user-plus"></i> Fungua Account Automatic Sasa
                 </button>
                 <button type="button" class="btn-back-main" onclick="closeFaqModal()">
@@ -2122,7 +2136,7 @@
             </div>
 
             <div class="how-buttons-group">
-                <button type="button" class="btn-green-main" onclick="closeHowItWorksModal(); openInstallCountryModal();">
+                <button type="button" class="btn-green-main" onclick="closeHowItWorksModal(); goRegister();">
                     <i class="fa-solid fa-user-plus"></i> Fungua Account Automatic
                 </button>
                 <button type="button" class="btn-back-main" onclick="closeHowItWorksModal()">
@@ -2143,35 +2157,35 @@
             </div>
             
             <div class="country-select-list">
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇹ℤ Tanzania</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇰🇪 Kenya</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇺🇬 Uganda</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇷🇼 Rwanda</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇧🇮 Burundi</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇸SS South Sudan</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn">
+                <a href="/register" class="country-item-btn">
                     <span class="country-flag-title">🇨🇩 DRC Congo</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
-                <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" class="country-item-btn" style="background: #ecfdf5; border-color: #059669;">
+                <a href="/register" class="country-item-btn" style="background: #ecfdf5; border-color: #059669;">
                     <span class="country-flag-title">🌐 International</span>
                     <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #059669;"></i>
                 </a>
@@ -2195,7 +2209,7 @@
         </div>
     </div>
 
-    <button type="button" class="floating-assistance" onclick="openCustomerCareModal()">
+    <button type="button" class="floating-assistance" onclick="goRegister()">
         <i class="fa-solid fa-headset"></i>
         <span>Customer Care</span>
     </button>
@@ -2212,7 +2226,7 @@
             
             <div class="modal-buttons-wrapper">
                 <div class="care-option-block">
-                    <a href="https://whatsapp.com/channel/0029VbCi6HOKbYMKafTBa446" target="_blank" class="btn-standalone-wa">
+                    <a href="/register" class="btn-standalone-wa">
                         <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i>
                         1️⃣ Join WhatsApp Channel
                     </a>
@@ -2232,7 +2246,7 @@
                 </div>
 
                 <div class="care-option-block">
-                    <button type="button" class="btn-standalone-register" onclick="closeCustomerCareModal(); openInstallCountryModal();">
+                    <button type="button" class="btn-standalone-register" onclick="closeCustomerCareModal(); goRegister();">
                         <i class="fa-solid fa-user-plus" style="font-size: 18px;"></i>
                         3️⃣ Fungua Account Automatic Hapa
                     </button>
@@ -2296,7 +2310,7 @@
             <div class="lock-popup-desc">
                 Huwezi kutuma ujumbe au kupata huduma hii kwa sasa mpaka ujisajili kwenye Chatlivo Site. Jisajili sasa ili uweze kuendelea na mazungumzo na kuanza kupata fedha.
             </div>
-            <a href="https://moxeraagencies.com/register?ref=WARLDCHAT" target="_blank" class="lock-btn-register">
+            <a href="/register" class="lock-btn-register">
                 <i class="fa-solid fa-user-plus"></i> Jisajili Sasa
             </a>
             <button type="button" class="lock-btn-back" onclick="closeLockPopup()">
@@ -2318,7 +2332,58 @@
     </div>
 
     <script>
-        const REFERRAL_LINK = "https://moxeraagencies.com/register?ref=WARLDCHAT";
+        const REFERRAL_LINK = "/register";
+
+        function goRegister() {
+            try {
+                window.top.location.href = "/register";
+            } catch (e) {
+                window.location.href = "/register";
+            }
+        }
+
+        function goLogin() {
+            try {
+                window.top.location.href = "/login";
+            } catch (e) {
+                window.location.href = "/login";
+            }
+        }
+
+        async function getCurrentMembership() {
+            const token = localStorage.getItem("chatlivos_access_token");
+            if (!token) return null;
+
+            try {
+                const response = await fetch("/api", {
+                    headers: { "Authorization": "Bearer " + token }
+                });
+                const data = await response.json();
+                if (!response.ok || !data.ok) return null;
+                return data;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        async function ensureActiveBeforeChat() {
+            const membership = await getCurrentMembership();
+            if (!membership || !membership.profile) {
+                goRegister();
+                return false;
+            }
+
+            if (!membership.profile.is_active) {
+                try {
+                    window.top.location.href = "/payment";
+                } catch (e) {
+                    window.location.href = "/payment";
+                }
+                return false;
+            }
+
+            return true;
+        }
 
         let audioCtx = null;
 
@@ -2449,7 +2514,9 @@
             document.getElementById('withdrawUnavailableModal').style.display = 'none';
         }
 
-        function triggerStartChatDirectly(name, countryFlag, imgUrl, tshAmount, chatTime) {
+        async function triggerStartChatDirectly(name, countryFlag, imgUrl, tshAmount, chatTime) {
+            const allowed = await ensureActiveBeforeChat();
+            if (!allowed) return;
             openChatInboxScreen(name, countryFlag, imgUrl, tshAmount, chatTime);
         }
 
@@ -2464,6 +2531,41 @@
             (name, country) => `Hello mambo vipi! Naitwa ${name} kutoka ${country}. Niko hapa kwa ajili ya kujifunza Kiswahili na kushauriana mambo mbalimbali ya maisha.`
         ];
 
+        let activeChatContext = null;
+        let lastIncomingResponse = "";
+
+        const realisticForeignerResponses = [
+            "Nimeelewa 😊. Unaweza kunifundisha pia namna ya kusema hivyo kwa Kiswahili cha kawaida?",
+            "Hilo ni zuri! Nimekuwa nikijifunza Kiswahili kidogo kidogo. Tanzania inaonekana kuwa na utamaduni mzuri sana.",
+            "Asante kwa kunieleza. Nipe mfano mwingine wa sentensi nitakayoitumia nikifika Tanzania.",
+            "Haha, nimependa hilo 😄. Je, neno hilo hutumika zaidi Dar es Salaam au nchi nzima?",
+            "Sawa mwalimu wangu! Nitajirudia hilo mara kadhaa mpaka nilitamke vizuri.",
+            "Interesting! Nimekuwa nikitaka kujua tofauti kati ya Kiswahili cha mazungumzo na kile cha darasani.",
+            "Nimeandika kwenye notes zangu. Sasa nifundishe salamu nyingine ambayo Mtanzania hutumia kila siku.",
+            "Wow, hilo sikulijua. Unaweza kunipa sentensi moja nitumie neno hilo?",
+            "Nafurahia mazungumzo haya. Pia nataka kujua chakula gani cha Tanzania ungependekeza kwa mgeni.",
+            "Asante! Nadhani ninaanza kuzoea Kiswahili. Ungependa nikutengenezee sentensi kwa kutumia neno nililojifunza?",
+            "That makes sense. Nikipata nafasi ya kutembelea Tanzania, nitakumbuka ushauri wako.",
+            "Hii ni practice nzuri sana kwangu. Nifundishe tofauti ya kusema hivyo kwa rafiki na kwa mtu mkubwa."
+        ];
+
+        function chooseDifferentResponse() {
+            const options = realisticForeignerResponses.filter((text) => text !== lastIncomingResponse);
+            const selected = options[Math.floor(Math.random() * options.length)] || realisticForeignerResponses[0];
+            lastIncomingResponse = selected;
+            return selected;
+        }
+
+        function addChatBubble(text, type) {
+            const messagesArea = document.getElementById('chatMessagesArea');
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble ' + type;
+            bubble.innerText = text;
+            messagesArea.appendChild(bubble);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+            return bubble;
+        }
+
         function openChatInboxScreen(name, countryFlag, imgUrl, tshAmount, chatTime) {
             const overlay = document.getElementById('chatScreenOverlay');
             const headerImg = document.getElementById('chatHeaderImg');
@@ -2476,6 +2578,8 @@
             headerImg.src = imgUrl;
             headerName.innerText = name + " (" + countryFlag + ")";
             metaCard.innerHTML = `Unafanya mazungumzo na <strong>${name}</strong> kutoka <strong>${countryFlag}</strong><br>Muda wa kuchati: <strong>${chatTime}</strong> • Malipo: <strong>TZS ${tshAmount}</strong>`;
+            activeChatContext = { name, countryFlag, imgUrl, tshAmount, chatTime };
+            lastIncomingResponse = "";
 
             const existingBubbles = messagesArea.querySelectorAll('.chat-bubble');
             existingBubbles.forEach(b => b.remove());
@@ -2499,12 +2603,8 @@
                 const randomTemplateFn = uniqueIntroTemplates[nameCharSum % uniqueIntroTemplates.length];
                 const introText = randomTemplateFn(name, pureCountryName);
 
-                const bubble = document.createElement('div');
-                bubble.className = 'chat-bubble incoming';
-                bubble.innerText = introText;
-                messagesArea.appendChild(bubble);
-                messagesArea.scrollTop = messagesArea.scrollHeight;
-
+                addChatBubble(introText, 'incoming');
+                lastIncomingResponse = introText;
                 playNotificationPing();
             }, delayMillis);
         }
@@ -2513,13 +2613,39 @@
             document.getElementById('chatScreenOverlay').style.display = 'none';
         }
 
-        function sendUserMessage() {
+        async function sendUserMessage() {
+            const allowed = await ensureActiveBeforeChat();
+            if (!allowed) return;
+
             const inputField = document.getElementById('chatInputField');
             const text = inputField.value.trim();
             if(!text) return;
 
             inputField.value = '';
-            document.getElementById('lockPopupOverlay').style.display = 'flex';
+            addChatBubble(text, 'outgoing');
+
+            const typingIndicator = document.getElementById('chatTypingIndicator');
+            const typingText = document.getElementById('typingIndicatorText');
+            typingText.innerText = (activeChatContext?.name || 'Foreigner') + ' is typing...';
+            typingIndicator.style.display = 'flex';
+
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                let response = chooseDifferentResponse();
+                const lower = text.toLowerCase();
+
+                if (lower.includes('habari') || lower.includes('mambo')) {
+                    response = 'Nzuri sana! Asante 😊. Leo nataka nijifunze Kiswahili cha mazungumzo, si maneno ya vitabu tu.';
+                } else if (lower.includes('jina')) {
+                    response = 'Nimefurahi kukufahamu! Mimi naitwa ' + (activeChatContext?.name || 'rafiki') + '. Na wewe unaitwaje?';
+                } else if (lower.includes('asante')) {
+                    response = 'Karibu sana! Nimefurahia maelezo yako. Nifundishe neno lingine kabla hatujaendelea.';
+                }
+
+                if (response === lastIncomingResponse) response = chooseDifferentResponse();
+                addChatBubble(response, 'incoming');
+                playNotificationPing();
+            }, 1200 + Math.floor(Math.random() * 1300));
         }
 
         function closeLockPopup() {
