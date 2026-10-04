@@ -1,24 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Chatlivo Site Tanzania | Lipwa Pesa kwa Kuchati na Wazungu" },
+      { name: "description", content: "Chatlivo Site ni jukwaa nambari moja Tanzania linalokuwezesha kupata kipato na kulipwa pesa kwa kuchati na wazungu na kuwafundisha Kiswahili mtandaoni." },
+      { property: "og:title", content: "Chatlivo Site Tanzania | Lipwa Pesa kwa Kuchati na Wazungu" },
+      { property: "og:description", content: "Ungana na Waafrika wanaoingiza kipato kila siku kwa kuchati na wazungu na kuwafundisha Kiswahili. Malipo ni papo hapo kupitia M-Pesa, Mix by Yas, Airtel au Benki." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <iframe title="Chatlivo Site" src="/chatlivo-original.html" className="fixed inset-0 h-full w-full border-0" />;
 }
